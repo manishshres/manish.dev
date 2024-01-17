@@ -61,8 +61,8 @@ const Portfolio = () => {
                   <div className="inner">
                     <div className="entry tokyo_tm_portfolio_animation_wrap">
                       <Item
-                        original="https://placehold.co/500x500/DDDDDD/000/?text=Coming+Soon+!"
-                        thumbnail="https://placehold.co/500x500/DDDDDD/000/?text=Coming+Soon+!"
+                        original="/img/portfolio/1.jpg"
+                        thumbnail="/img/portfolio/1.jpg"
                         width={500}
                         height={550}
                       >
@@ -71,7 +71,7 @@ const Portfolio = () => {
                             width={300}
                             height={300}
                             srl_gallery_image="true"
-                            src="https://placehold.co/500x500/DDDDDD/000/?text=Coming+Soon+!"
+                            src="/img/portfolio/1.jpg"
                             alt="Childhood"
                             data-tip
                             data-for="shot"
