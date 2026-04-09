@@ -1,6 +1,6 @@
 import Seo from "../components/Seo";
 import Contact from "../components/contact/Contact";
-import Sidebar from "../components/sidebar/Sidebar";
+import Navbar from "../components/navbar/Navbar";
 
 const index = () => {
   return (
@@ -8,7 +8,7 @@ const index = () => {
       <Seo pageTitle="Contact" />
       {/* End page title for seo */}
 
-      <Sidebar />
+      <Navbar />
       {/* END LEFT MENU CONTENT */}
 
       {/* START RIGHT PART CONTENT */}

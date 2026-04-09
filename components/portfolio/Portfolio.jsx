@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import ModalOne from "./modal/ModalOne";
 import ModalTwo from "./modal/ModalTwo";
+import ModalHisaab from "./modal/ModalHisaab";
 
 Modal.setAppElement("#__next");
 
@@ -27,6 +28,7 @@ const Portfolio = () => {
   // for modal details
   const [isOpenModalOne, setIsOpenModalOne] = useState(false);
   const [isOpenModalTwo, setIsOpenModalTwo] = useState(false);
+  const [isOpenModalHisaab, setIsOpenModalHisaab] = useState(false);
 
   // for modal details method
   function toggleModalOne() {
@@ -34,6 +36,9 @@ const Portfolio = () => {
   }
   function toggleModalTwo() {
     setIsOpenModalTwo(!isOpenModalTwo);
+  }
+  function toggleModalHisaab() {
+    setIsOpenModalHisaab(!isOpenModalHisaab);
   }
 
   return (
@@ -57,6 +62,39 @@ const Portfolio = () => {
                 data-aos="fade-right"
                 data-aos-duration="1200"
               >
+                {/* START HISAAB — first */}
+                <li>
+                  <div className="inner">
+                    <div className="entry tokyo_tm_portfolio_animation_wrap">
+                      <Image
+                        width={300}
+                        height={300}
+                        src="/img/portfolio/1.png"
+                        alt="Hisaab"
+                        data-tip
+                        data-for="hisaab"
+                        role="button"
+                        onClick={toggleModalHisaab}
+                        className="portfolio-bw"
+                      />
+                      <ReactTooltip
+                        id="hisaab"
+                        place="bottom"
+                        type="light"
+                        effect="float"
+                        className="tooltip-wrapper"
+                      >
+                        <div>
+                          <h5>Hisaab</h5>
+                          <span>Expense Splitting App</span>
+                        </div>
+                      </ReactTooltip>
+                    </div>
+                  </div>
+                </li>
+                {/* END HISAAB */}
+
+                {/* Coming soon — last */}
                 <li>
                   <div className="inner">
                     <div className="entry tokyo_tm_portfolio_animation_wrap">
@@ -72,7 +110,7 @@ const Portfolio = () => {
                             height={300}
                             srl_gallery_image="true"
                             src="/img/portfolio/1.jpg"
-                            alt="Childhood"
+                            alt="Coming soon"
                             data-tip
                             data-for="shot"
                             role="button"
@@ -96,8 +134,8 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </li>
+                {/* END COMING SOON */}
 
-                {/* END SHOT */}
               </ul>
               {/* END PORTFOLIO LIST */}
             </TabPanel>
@@ -106,6 +144,25 @@ const Portfolio = () => {
           {/* END LIST WRAPPER */}
         </Tabs>
       </Gallery>
+
+      {/* START HISAAB MODAL */}
+      <Modal
+        isOpen={isOpenModalHisaab}
+        onRequestClose={toggleModalHisaab}
+        contentLabel="Hisaab"
+        className="mymodal"
+        overlayClassName="myoverlay"
+        closeTimeoutMS={500}
+      >
+        <div className="portfolio_tm_modalbox">
+          <button className="close-modal" onClick={toggleModalHisaab}>
+            <img src="/img/svg/cancel.svg" alt="close" />
+          </button>
+          {/* END CLOSE MODAL */}
+          <ModalHisaab />
+        </div>
+      </Modal>
+      {/* END HISAAB MODAL */}
     </>
   );
 };

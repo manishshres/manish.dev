@@ -910,6 +910,13 @@ h6 {
   cursor: pointer;
   transition: 0.5s;
 }
+.tokyo_tm_portfolio .portfolio_list li .inner img.portfolio-bw {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.tokyo_tm_portfolio .portfolio_list li .inner:hover img.portfolio-bw {
+  filter: grayscale(0%);
+}
 ul.react-tabs__tab-list {
   position: absolute;
   right: 0;

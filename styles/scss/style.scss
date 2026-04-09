@@ -9,3 +9,6 @@
 @import "main/humberger";
 @import "main/dark";
 @import "node_modules/react-modal-video/scss/modal-video.scss";
+
+// NeoBrutalism theme — must be last to win specificity
+@import "main/neobrutalism";

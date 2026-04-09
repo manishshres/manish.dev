@@ -22,14 +22,10 @@ export default function App({ Component, pageProps }) {
     <div className="tokyo_tm_all_wrap">
       <ThemeProvider attribute="class">
         <ThemeSwitch />
-        {/* {router.asPath !== "/" ? <ThemeSwitch /> : ""} */}
-        {/* End themeSwicher */}
         <Component {...pageProps} />
-        {/* Main next component pageprops */}
       </ThemeProvider>
 
       <ToastContainer />
-      {/* End toast container for email send notification */}
     </div>
   );
 }

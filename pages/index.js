@@ -1,6 +1,6 @@
 import Home from "../components/home/Home";
 import Seo from "../components/Seo";
-import Sidebar from "../components/sidebar/Sidebar";
+import Navbar from "../components/navbar/Navbar";
 import Wrapper from "../layout/wrapper";
 
 const MainRoot = () => {
@@ -9,7 +9,7 @@ const MainRoot = () => {
       <Seo pageTitle="Home" />
       {/* En Seo Page Title */}
 
-      <Sidebar />
+      <Navbar />
       {/* END LEFT MENU CONTENT */}
 
       {/* START RIGHT PART CONTENT */}

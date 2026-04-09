@@ -1,0 +1,984 @@
+/*---------------------------------------------------*/
+/*  NEOBRUTALISM THEME
+/*  Colors inspired by PostHog + Gumroad
+/*  Structure: bold borders · hard shadows · press effects
+/*  Palette: purple primary · yellow accent · dark borders
+/*---------------------------------------------------*/
+
+// ── CSS Custom Properties ────────────────────────────────
+:root {
+  --radius: 0.5rem;
+  --background: #f5f5f5;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --primary: #3367ad;
+  --primary-hover: #2a5490;
+  --primary-foreground: #fff;
+  --secondary: #3a3a3a;
+  --secondary-foreground: #f5f5f5;
+  --muted: #CFCCEA;
+  --muted-foreground: #5B5686;
+  --accent: #FED13B;
+  --accent-foreground: #000000;
+  --border: #3a3a3a;
+
+  --nb-shadow:    4px 4px 0px var(--border);
+  --nb-shadow-lg: 6px 6px 0px var(--border);
+}
+
+.dark {
+  --background: #0f0f12;
+  --foreground: #f5f5f5;
+  --card: #1a1a1d;
+  --primary: #4d80c4;
+  --primary-hover: #3367ad;
+  --primary-foreground: #fff;
+  --secondary: #2a2a2e;
+  --secondary-foreground: #eaeaea;
+  --muted: #3d395a;
+  --muted-foreground: #a49fce;
+  --accent: #FED13B;
+  --accent-foreground: #000;
+  --border: #2e2e32;
+
+  --nb-shadow:    4px 4px 0px rgba(255,255,255,0.15);
+  --nb-shadow-lg: 6px 6px 0px rgba(255,255,255,0.15);
+}
+
+// ── SCSS tokens (for use inside SCSS only) ───────────────
+$nb-border: 2px solid var(--border);
+$nb-font-body: "Space Grotesk", system-ui, sans-serif;
+$nb-font-mono: "Space Mono", monospace;
+
+// ── Grid background mixin ────────────────────────────────
+@mixin grid-bg($color: rgba(0,0,0,0.05), $size: 28px) {
+  background-image:
+    linear-gradient($color 1px, transparent 1px),
+    linear-gradient(90deg, $color 1px, transparent 1px);
+  background-size: $size $size;
+}
+
+// ═══════════════════════════════════════════════════════
+//  BASE
+// ═══════════════════════════════════════════════════════
+
+body {
+  font-family: $nb-font-body !important;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $nb-font-body !important;
+  font-weight: 700 !important;
+  color: var(--foreground) !important;
+}
+
+a:hover { letter-spacing: 0 !important; }
+
+// ═══════════════════════════════════════════════════════
+//  LEFT SIDEBAR
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_all_wrap .leftpart {
+  background-color: var(--card) !important;
+  border-right: $nb-border !important;
+  @include grid-bg(rgba(0,0,0,0.04), 24px);
+}
+
+.tokyo_tm_all_wrap .leftpart img {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+}
+
+// Nav links
+.tokyo_tm_all_wrap .leftpart .menu ul li a {
+  font-family: $nb-font-body !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: var(--muted-foreground) !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 2px solid transparent;
+  transition: all 0.15s ease !important;
+
+  &:hover {
+    color: var(--primary) !important;
+    background-color: var(--muted) !important;
+    border: $nb-border !important;
+    box-shadow: var(--nb-shadow) !important;
+    letter-spacing: 0 !important;
+  }
+
+  &.active {
+    color: var(--primary-foreground) !important;
+    background-color: var(--primary) !important;
+    border: $nb-border !important;
+    box-shadow: var(--nb-shadow) !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+.tokyo_tm_all_wrap .leftpart .menu > ul li:hover {
+  letter-spacing: 0 !important;
+}
+
+.tokyo_tm_all_wrap .leftpart .copyright p,
+.tokyo_tm_all_wrap .leftpart .copyright a {
+  font-family: $nb-font-mono !important;
+  font-size: 11px !important;
+  color: var(--muted-foreground) !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  RIGHT CONTENT AREA
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_all_wrap .rightpart {
+  background-color: var(--background) !important;
+  @include grid-bg(rgba(0,0,0,0.04), 28px);
+}
+
+// ═══════════════════════════════════════════════════════
+//  SECTION TITLES
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_title span {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  font-family: $nb-font-mono !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tokyo_tm_title h3 {
+  font-family: $nb-font-body !important;
+  font-weight: 800 !important;
+  font-size: 32px !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  HOME SECTION
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_home .details .name {
+  font-family: $nb-font-body !important;
+  font-weight: 800 !important;
+  font-size: 56px !important;
+  letter-spacing: -1px;
+}
+
+// Bigger avatar
+.tokyo_tm_home .avatar {
+  min-width: 380px !important;
+  min-height: 380px !important;
+}
+
+@media (max-width: 767px) {
+  .tokyo_tm_home .avatar {
+    min-width: 240px !important;
+    min-height: 240px !important;
+  }
+  .tokyo_tm_home .details .name {
+    font-size: 36px !important;
+  }
+}
+
+// Squarified avatar with primary border
+.tokyo_tm_home .avatar .image {
+  border-radius: 0 !important;
+  animation: none !important;
+  border: 3px solid var(--primary) !important;
+  box-shadow: var(--nb-shadow-lg) !important;
+}
+
+.tokyo_tm_home .details .typer,
+.tokyo_tm_home .details .typer * {
+  font-family: $nb-font-mono !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  color: var(--primary) !important;
+}
+
+.tokyo_tm_home .details .job {
+  max-width: 520px !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: var(--muted-foreground) !important;
+}
+
+.social li a {
+  color: var(--muted-foreground) !important;
+  filter: none !important;
+  transition: transform 0.15s ease !important;
+  &:hover {
+    color: var(--primary) !important;
+    transform: translateY(-3px) !important;
+    filter: none !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  BUTTONS
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_button a,
+.ib-button {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  font-family: $nb-font-body !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.1s ease, transform 0.1s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    box-shadow: 2px 2px 0px var(--border) !important;
+    transform: translate(2px, 2px) !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  &:active {
+    box-shadow: none !important;
+    transform: translate(4px, 4px) !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  ABOUT SECTION
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_about .about_image img {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow-lg) !important;
+  border-radius: 0 !important;
+}
+
+.tokyo_tm_about .description .right > ul > li span {
+  color: var(--foreground) !important;
+  font-family: $nb-font-mono !important;
+  font-weight: 700 !important;
+}
+
+.tokyo_tm_about .description .right > ul > li a {
+  color: var(--muted-foreground) !important;
+}
+
+.tokyo_tm_about .description .right > ul > li a:hover {
+  color: var(--primary) !important;
+  letter-spacing: 0 !important;
+}
+
+.tokyo_tm_about .description .name {
+  font-family: $nb-font-body !important;
+  font-weight: 800 !important;
+}
+
+// Skills bar — accent color fill
+.progress_inner .background {
+  background: var(--muted) !important;
+  border: 1px solid var(--border) !important;
+  height: 6px !important;
+}
+
+.progress_inner .background .bar_in {
+  background: var(--primary) !important;
+}
+
+.tokyo_tm_modalbox_about .list_inner {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  background: var(--card) !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  PORTFOLIO
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_portfolio .portfolio_list li .inner {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+  background: var(--card) !important;
+
+  &:hover {
+    box-shadow: 2px 2px 0px var(--border) !important;
+    transform: translate(2px, 2px) !important;
+
+    img { transform: scale(1.04) !important; }
+  }
+}
+
+// Filter tabs — pill style with press effect
+.tokyo_tm_portfolio .portfolio_filter .react-tabs__tab-list li,
+ul.react-tabs__tab-list li {
+  border: $nb-border !important;
+  font-family: $nb-font-body !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  letter-spacing: 0.5px;
+  color: var(--foreground) !important;
+  border-radius: 0 !important;
+  transition: all 0.1s ease !important;
+
+  &:hover,
+  &.react-tabs__tab--selected {
+    background-color: var(--accent) !important;
+    box-shadow: var(--nb-shadow) !important;
+    color: var(--accent-foreground) !important;
+  }
+}
+
+// Tooltip
+.tooltip-wrapper {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  font-family: $nb-font-body !important;
+  background: var(--card) !important;
+
+  h5 {
+    font-weight: 700 !important;
+    color: var(--foreground) !important;
+  }
+  span {
+    font-family: $nb-font-mono !important;
+    font-size: 11px !important;
+    color: var(--muted-foreground) !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  MODALS
+// ═══════════════════════════════════════════════════════
+
+.mymodal {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  width: 90vw !important;
+  max-width: 860px !important;
+  height: 85vh !important;
+  max-height: 85vh !important;
+
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow-lg) !important;
+  border-radius: 0 !important;
+  background: var(--card) !important;
+  overflow: hidden !important;
+  outline: none !important;
+  @include grid-bg(rgba(0,0,0,0.025), 20px);
+
+  // The inner scroll container
+  .portfolio_tm_modalbox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .box_inner {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .description_wrap {
+    height: 100% !important;
+    overflow-y: auto !important;
+    padding: 60px 48px 48px !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--muted);
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: var(--muted); }
+    &::-webkit-scrollbar-thumb { background: var(--primary); }
+  }
+
+  // Hero image inside modal
+  .image {
+    width: 100%;
+    margin-bottom: 28px;
+
+    .main {
+      width: 100%;
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      border: $nb-border;
+    }
+  }
+
+  // Close button — top right corner
+  .close-modal {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 10;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (max-width: 600px) {
+    width: 96vw !important;
+    height: 92vh !important;
+
+    .description_wrap {
+      padding: 52px 20px 24px !important;
+    }
+
+    .image .main {
+      height: 160px;
+    }
+  }
+}
+
+.myoverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 99 !important;
+  background: rgba(10, 10, 15, 0.8) !important;
+  backdrop-filter: blur(4px);
+}
+
+.close-modal {
+  background: var(--accent) !important;
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  transition: box-shadow 0.1s ease, transform 0.1s ease !important;
+
+  &:hover {
+    box-shadow: 2px 2px 0px var(--border) !important;
+    transform: translate(2px, 2px) !important;
+  }
+}
+
+// Portfolio detail modal
+.portfolio_tm_modalbox .portfolio_main_title h3 {
+  font-family: $nb-font-body !important;
+  font-weight: 800 !important;
+  font-size: 26px !important;
+  color: var(--foreground) !important;
+}
+
+.portfolio_tm_modalbox .portfolio_main_title span {
+  font-family: $nb-font-mono !important;
+  font-style: normal !important;
+  background: var(--muted) !important;
+  color: var(--muted-foreground) !important;
+  border: $nb-border !important;
+  box-shadow: none !important;
+  padding: 2px 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0 !important;
+}
+
+.portfolio_tm_modalbox .main_details .detailbox .first {
+  font-family: $nb-font-mono !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  color: var(--foreground) !important;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.portfolio_tm_modalbox .main_details .detailbox > ul {
+  list-style: none !important;
+}
+
+.portfolio_tm_modalbox .main_details .detailbox span a {
+  font-family: $nb-font-body !important;
+  color: var(--primary) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: var(--primary-hover) !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+.portfolio_tm_modalbox .main_details .textbox p {
+  font-style: normal !important;
+  color: var(--muted-foreground) !important;
+  line-height: 1.75;
+}
+
+// ═══════════════════════════════════════════════════════
+//  SERVICE CARDS
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_services .list > ul > li {
+  .list_inner {
+    border: $nb-border !important;
+    box-shadow: var(--nb-shadow) !important;
+    border-radius: 0 !important;
+    background: var(--card) !important;
+    transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+
+    &:hover {
+      box-shadow: 2px 2px 0px var(--border) !important;
+      transform: translate(2px, 2px) !important;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  BLOG / NEWS CARDS
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_news .list > ul > li .list_inner,
+.tokyo_tm_testimonials .list > ul > li .list_inner {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  background: var(--card) !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+
+  &:hover {
+    box-shadow: 2px 2px 0px var(--border) !important;
+    transform: translate(2px, 2px) !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  CONTACT FORM
+// ═══════════════════════════════════════════════════════
+
+.tokyo_tm_contact input,
+.tokyo_tm_contact textarea {
+  border: $nb-border !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: 0 !important;
+  background: var(--card) !important;
+  font-family: $nb-font-body !important;
+  color: var(--foreground) !important;
+  transition: box-shadow 0.1s ease, transform 0.1s ease !important;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px var(--primary) !important;
+    transform: translate(1px, 1px) !important;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  DARK MODE
+// ═══════════════════════════════════════════════════════
+
+.dark body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.dark h1, .dark h2, .dark h3,
+.dark h4, .dark h5, .dark h6 {
+  color: var(--foreground) !important;
+}
+
+.dark .tokyo_tm_all_wrap .leftpart {
+  background-color: var(--card) !important;
+  @include grid-bg(rgba(255,255,255,0.03), 24px);
+}
+
+.dark .tokyo_tm_all_wrap .leftpart .menu ul li a {
+  color: var(--muted-foreground) !important;
+}
+
+.dark .tokyo_tm_all_wrap .rightpart {
+  background-color: var(--background) !important;
+  @include grid-bg(rgba(255,255,255,0.025), 28px);
+}
+
+.dark .mymodal {
+  background: var(--card) !important;
+  @include grid-bg(rgba(255,255,255,0.025), 20px);
+}
+
+// Fix: _dark.scss sets box_inner overflow-y: initial which breaks modal scroll
+.dark .box_inner {
+  overflow-y: hidden !important;
+}
+
+.dark .portfolio_tm_modalbox .portfolio_main_title h3,
+.dark .portfolio_tm_modalbox .main_details .detailbox .first {
+  color: var(--foreground) !important;
+}
+
+.dark .portfolio_tm_modalbox .main_details .textbox p {
+  color: var(--muted-foreground) !important;
+}
+
+.dark .tokyo_tm_portfolio .portfolio_list li .inner,
+.dark .tokyo_tm_services .list > ul > li .list_inner,
+.dark .tokyo_tm_news .list > ul > li .list_inner,
+.dark .tokyo_tm_testimonials .list > ul > li .list_inner,
+.dark .tokyo_tm_modalbox_about .list_inner {
+  background: var(--card) !important;
+}
+
+// Fix: _dark.scss hardcodes tooltip h5 to black — override with foreground
+.dark .tooltip-wrapper {
+  background: var(--card) !important;
+  h5 { color: var(--foreground) !important; }
+  span { color: var(--muted-foreground) !important; }
+}
+
+// Fix: _dark.scss sets social links to filter: invert(1) — we use color vars instead
+.dark .tokyo_tm_home .social li a {
+  filter: none !important;
+  color: var(--muted-foreground) !important;
+}
+
+// Fix: _dark.scss overrides button background to white — our variable handles this
+.dark .tokyo_tm_button a,
+.dark .ib-button {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+// Fix: _dark.scss overrides service cards without !important — ensure our card color wins
+.dark .tokyo_tm_services .list ul li .list_inner {
+  background: var(--card) !important;
+  border: $nb-border !important;
+}
+
+// Fix: _dark.scss sets title span to grey/transparent — use primary blue instead
+.dark .tokyo_tm_title span {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .tokyo_tm_contact input,
+.dark .tokyo_tm_contact textarea {
+  background: var(--secondary) !important;
+  color: var(--foreground) !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  MISC
+// ═══════════════════════════════════════════════════════
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+#preloader:before, #preloader:after {
+  background-color: #1a1a1a !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  LAYOUT OVERRIDE — sidebar → navbar
+// ═══════════════════════════════════════════════════════
+
+// Hide old leftpart + old mobile header/hamburger entirely
+.tokyo_tm_all_wrap .leftpart,
+.header,
+.header-inner,
+.my_trigger {
+  display: none !important;
+}
+
+// Rightpart: full width, top padding for fixed 64px navbar
+.tokyo_tm_all_wrap .rightpart {
+  padding-left: 0 !important;
+  padding-top: 64px !important;
+  width: 100% !important;
+  float: none !important;
+}
+
+// Kill old left-offset at every breakpoint
+@media (min-width: 1601px) {
+  .tokyo_tm_all_wrap .rightpart { padding-left: 0 !important; }
+}
+@media (max-width: 1200px) {
+  .tokyo_tm_all_wrap .rightpart {
+    padding-left: 0 !important;
+    padding-top: 64px !important;
+  }
+  // Old code added 130-140px top padding — reset it
+  .tokyo_tm_about,
+  .tokyo_tm_home,
+  .tokyo_tm_portfolio,
+  .tokyo_tm_contact,
+  .tokyo_tm_news,
+  .tokyo_tm_services {
+    padding-top: 40px !important;
+  }
+  .tokyo_tm_home { padding-bottom: 40px !important; }
+}
+
+.tokyo_tm_section {
+  padding-left: 0 !important;
+}
+
+// ═══════════════════════════════════════════════════════
+//  NAVBAR
+// ═══════════════════════════════════════════════════════
+
+.nb-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--card);
+  border-bottom: $nb-border;
+  box-shadow: var(--nb-shadow);
+}
+
+.nb-navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nb-navbar__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  img {
+    border: none !important;
+    box-shadow: none !important;
+    display: block;
+  }
+}
+
+// Desktop nav links
+.nb-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li a {
+    font-family: $nb-font-body;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    // Fixed height + min-width so every link is the same size
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    min-width: 96px;
+    padding: 0 14px;
+    border: 2px solid transparent;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: var(--primary);
+      background: var(--muted);
+      border-color: var(--border);
+      box-shadow: var(--nb-shadow);
+    }
+
+    &.active {
+      color: var(--primary-foreground);
+      background: var(--primary);
+      border-color: var(--border);
+      box-shadow: var(--nb-shadow);
+    }
+  }
+}
+
+// Hamburger — hidden on desktop
+.nb-navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: $nb-border;
+  box-shadow: var(--nb-shadow);
+  // Match theme button height exactly
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--foreground);
+    transition: all 0.2s ease;
+  }
+
+  &.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  &.open span:nth-child(2) { opacity: 0; }
+  &.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  &:hover {
+    box-shadow: 2px 2px 0 var(--border);
+    transform: translate(2px, 2px);
+  }
+}
+
+// Mobile drawer
+.nb-navbar__mobile {
+  display: none;
+  flex-direction: column;
+  background: var(--card);
+  border-top: $nb-border;
+  padding: 16px 24px;
+
+  &.open {
+    display: flex;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  li a {
+    font-family: $nb-font-body;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 2px solid transparent;
+    display: block;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: var(--primary);
+      background: var(--muted);
+      border-color: var(--border);
+    }
+
+    &.active {
+      color: var(--primary-foreground);
+      background: var(--primary);
+      border-color: var(--border);
+    }
+  }
+}
+
+.nb-navbar__mobile-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: $nb-font-mono;
+  font-size: 11px;
+  color: var(--muted-foreground);
+
+  p { margin: 0; }
+  a { color: var(--primary); }
+}
+
+// Responsive breakpoint
+@media (max-width: 768px) {
+  .nb-navbar__links { display: none; }
+  .nb-navbar__hamburger { display: flex; }
+
+  .nb-navbar__inner {
+    padding: 0 16px;
+  }
+}
+
+// Dark mode navbar
+.dark .nb-navbar {
+  background: var(--card);
+}
+
+.dark .nb-navbar__mobile {
+  background: var(--card);
+}
+
+// Logo: invert in dark mode so the dark logo is readable on dark background
+.dark .nb-navbar__logo img {
+  filter: invert(1) !important;
+}
+
+// Right controls group (theme btn + hamburger)
+.nb-navbar__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Theme toggle button
+.nb-navbar__theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--muted);
+  border: $nb-border;
+  box-shadow: var(--nb-shadow);
+  cursor: pointer;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  color: var(--foreground);
+
+  svg { width: 16px; height: 16px; }
+
+  &:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    box-shadow: 2px 2px 0 var(--border);
+    transform: translate(2px, 2px);
+  }
+}
+
+// Hide the old floating theme-switcher-label (replaced by navbar button)
+.theme-switcher-label {
+  display: none !important;
+}
+
+// nb-navbar mobile: bump hamburger breakpoint to 900px for better UX
+@media (max-width: 900px) {
+  .nb-navbar__links { display: none !important; }
+  .nb-navbar__hamburger { display: flex !important; }
+}
