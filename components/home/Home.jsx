@@ -5,21 +5,21 @@ import Social from "../Social";
 const Home = () => {
   return (
     <>
-      <div className="tokyo_tm_home">
-        <div className="home_content">
-          <div className="avatar">
+      <div className='tokyo_tm_home'>
+        <div className='home_content'>
+          <div className='avatar'>
             <div
-              className="image avatar_img"
+              className='image avatar_img'
               style={{
-                backgroundImage: "url(/img/slider/4.jpg)",
+                backgroundImage: "url(/img/slider/4.png)",
               }}
             ></div>
             {/* END AVATAR IMAGE */}
           </div>
           {/* END AVATAR */}
-          <div className="details">
-            <h3 className="name">Manish Shrestha</h3>
-            <h4 className="typer">
+          <div className='details'>
+            <h3 className='name'>Manish Shrestha</h3>
+            <h4 className='typer'>
               <Typed
                 strings={[
                   "Passionate Programmer",
@@ -32,7 +32,7 @@ const Home = () => {
               />
             </h4>
 
-            <p className="job">
+            <p className='job'>
               Currently residing in the Philadelphia area, I balance my life as
               a graduate student at Penn State with a deep love for coding and
               exploring the great outdoors through hiking.
